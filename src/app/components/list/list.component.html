@@ -1,0 +1,9 @@
+<div class="">
+  <h3 class="">Seriale</h3>
+  <div>
+      <app-cart *ngFor="let item of pageOfItems" [item]="item"></app-cart>
+  </div>
+  <div class="">
+    <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div>
