@@ -7,12 +7,12 @@ import { Series } from '../models/series.model';
 import { throwError } from 'rxjs/internal/observable/throwError';
 @Injectable()
 export class SeriesService {
-    private seriesUrl = 'http://api.tvmaze.com/shows';
+    private seriesUrl = 'http://api.tvmaze.com/';
     constructor(private http: HttpClient) {
     }
 
-    getProducts(): Observable<Series[]> {
-        return this.http.get<Series[]>(this.seriesUrl)
+    getAllSeries(): Observable<Series[]> {
+        return this.http.get<Series[]>(`${this.seriesUrl}shows`)
             .pipe(
                 map((data) => {
                     return data;
@@ -21,6 +21,18 @@ export class SeriesService {
                 catchError(this.handleError)
             );
     }
+
+    getSeriesSearch(phrase : string): Observable<Series[]> {
+        return this.http.get<Series[]>(`${this.seriesUrl}search/shows?q=${phrase}`)
+            .pipe(
+                map((data) => {
+                    return data.map(data=>data['show'])
+                }),
+                tap(data => console.log(JSON.stringify(data=>data['show']))),
+                catchError(this.handleError)
+            );
+    }
+
 
     private handleError(err) {
         // in a real world app, we may send the server to some remote logging infrastructure
