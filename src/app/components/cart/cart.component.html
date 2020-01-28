@@ -1,6 +1,6 @@
-<div class="cart">
-  <img src={{item.image.medium}} alt={{item.name}} />
-  <h3>{{item.name}}</h3>
-    <p>Rating: <span>{{item.rating.average}}</span></p>
-    <p [innerHTML]="item.summary | truncate : 100 : true"></p>
-</div>
+<img src={{item.image.medium}} alt={{item.name}}/>
+<h3>{{item.name}}</h3>
+<bar-rating [(rate)]="item.rating.average" [max]="10" [theme]="'movie'" [readOnly]="'true'"></bar-rating>
+<p>Rating: <span>{{item.rating.average}}</span></p>
+<div class="summary" [innerHTML]="item.summary | truncate : 100 : true"></div>
+

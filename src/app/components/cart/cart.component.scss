@@ -1,0 +1,26 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/layout";
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/typography";
+
+
+h3 {
+  font-family: $brand-font;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  max-width: 200px;
+  font-family: $brand-font;
+}
+
+bar-rating {
+  max-width: 80%;
+}
