@@ -6,6 +6,7 @@ export enum SeriesActionTypes {
     Load = '[Series] Load',
     LoadSuccess = '[Series] Load Success',
     LoadFail = '[Series] Load Fail',
+    Search = '[Series] Search'
 }
 
 
@@ -13,6 +14,12 @@ export class Load implements Action {
     readonly type = SeriesActionTypes.Load;
 
     constructor() { }
+}
+
+export class Search implements Action {
+    readonly type = SeriesActionTypes.Search;
+
+    constructor(public payload: string) { }
 }
 
 export class LoadSuccess implements Action {
