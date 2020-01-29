@@ -18,9 +18,3 @@ export const getSeries = createSelector(
     }
 );
 
-export const getLoaded = createSelector(
-    getSeriesFeatureState,
-    state => {
-        return state.loaded;
-    }
-);
