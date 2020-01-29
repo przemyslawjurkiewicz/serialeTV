@@ -1,9 +1,10 @@
-import { createFeatureSelector, createSelector, ActionReducerMap } from '@ngrx/store';
+import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/store';
 import * as fromSeries from '../reducers/series.reducer';
 
 export interface State {
     seriesFeature: fromSeries.SeriesState;
 }
+
 export const reducers: ActionReducerMap<State> = {
     seriesFeature: fromSeries.SeriesReducer,
 };

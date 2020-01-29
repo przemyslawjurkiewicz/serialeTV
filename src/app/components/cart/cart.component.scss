@@ -3,11 +3,11 @@
 @import "../../../assets/styles/mixins";
 @import "../../../assets/styles/typography";
 
-
 h3 {
   font-family: $brand-font;
   font-weight: bold;
   color: $color-primary;
+  margin: 0;
 }
 
 img {

@@ -1,0 +1,20 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/layout";
+@import "../../../assets/styles/mixins";
+@import "../../../assets/styles/typography";
+
+h1 {
+  padding: 0;
+  margin: 2px 0;
+}
+
+input {
+  margin: 5px 0;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid $color-primary;
+  border-radius: 3px;
+  color: $dark;
+  width: 300px;
+
+}

@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/internal/Observable';
+import {catchError, map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
 
-import { Series } from '../models/series.model';
-import { throwError } from 'rxjs/internal/observable/throwError';
+import {Series} from '../models/series.model';
+import {throwError} from 'rxjs/internal/observable/throwError';
+
 @Injectable()
 export class SeriesService {
     private seriesUrl = 'http://api.tvmaze.com/';
+
     constructor(private http: HttpClient) {
     }
 
@@ -17,33 +19,27 @@ export class SeriesService {
                 map((data) => {
                     return data;
                 }),
-                tap(data => console.log(JSON.stringify(data))),
+                //   tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
 
-    getSeriesSearch(phrase : string): Observable<Series[]> {
+    getSeriesSearch(phrase: string): Observable<Series[]> {
         return this.http.get<Series[]>(`${this.seriesUrl}search/shows?q=${phrase}`)
             .pipe(
                 map((data) => {
-                    return data.map(data=>data['show'])
+                    return data.map(data => data['show'])
                 }),
-                tap(data => console.log(JSON.stringify(data=>data['show']))),
+                //  tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
 
-
     private handleError(err) {
-        // in a real world app, we may send the server to some remote logging infrastructure
-        // instead of just logging it to the console
         let errorMessage: string;
         if (err.error instanceof ErrorEvent) {
-            // A client-side or network error occurred. Handle it accordingly.
             errorMessage = `An error occurred: ${err.error.message}`;
         } else {
-            // The backend returned an unsuccessful response code.
-            // The response body may contain clues as to what went wrong,
             errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
         }
         console.error(err);

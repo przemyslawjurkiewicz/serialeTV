@@ -2,7 +2,6 @@
   @for $i from 1 through 12 {
     .col-#{$prefix}-#{$i} {
       $width: (100% / 12 * $i)-2%;
-      flex: 0 1 $width;
       width: $width;
     }
   }
