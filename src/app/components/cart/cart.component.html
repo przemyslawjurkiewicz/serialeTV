@@ -1,6 +1,9 @@
-<img src={{item.image.medium}} alt={{item.name}}/>
+<img *ngIf = "item.image !== null; else clearPicture" src={{item.image.medium}} alt={{item.name}}/>
 <h3>{{item.name}}</h3>
-<bar-rating [(rate)]="item.rating.average" [max]="10" [theme]="'movie'" [readOnly]="'true'"></bar-rating>
-<p>Rating: <span>{{item.rating.average}}</span></p>
-<div class="summary" [innerHTML]="item.summary | truncate : 100 : true"></div>
+<bar-rating *ngIf = "item.rating !== null" [(rate)]="item.rating.average" [max]="10" [theme]="'movie'" [readOnly]="'true'"></bar-rating>
+<p>Rating: <span *ngIf = "item.rating.average !== null">{{item.rating.average}}</span></p>
+<div *ngIf = "item.summary !== null" class="summary" [innerHTML]="item.summary | truncate : 100 : true"></div>
 
+<ng-template #clearPicture>
+    <img src="./assets/images/noPicture.png"/>
+</ng-template>
