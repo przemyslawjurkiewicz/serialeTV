@@ -2,11 +2,11 @@ import {Component, Input} from '@angular/core';
 import {Series} from "../../models/series.model";
 
 @Component({
-    selector: 'app-cart',
-    templateUrl: './cart.component.html',
-    styleUrls: ['./cart.component.scss']
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss']
 })
-export class CartComponent {
+export class cardComponent {
     @Input() item: Series;
 
     constructor() {

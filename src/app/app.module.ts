@@ -9,7 +9,7 @@ import {SeriesEffect} from './effects/series.effect';
 import {reducers} from './reducers/index';
 import {AppComponent} from './app.component';
 import {ListComponent} from './components/list/list.component';
-import {CartComponent} from './components/cart/cart.component';
+import {cardComponent} from './components/card/card.component';
 import {TruncatePipe} from "./params/truncate.pipe";
 import { BarRatingModule } from "ngx-bar-rating";
 import { HeaderComponent } from './components/header/header.component';
@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         AppComponent,
         ListComponent,
         JwPaginationComponent,
-        CartComponent,
+        cardComponent,
         TruncatePipe,
         HeaderComponent
     ],

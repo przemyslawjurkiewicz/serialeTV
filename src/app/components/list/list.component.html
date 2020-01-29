@@ -1,5 +1,5 @@
 <div class="list">
-    <app-cart *ngFor="let item of pageOfItems" [item]="item" class="col-lg-2 col-sm-6"></app-cart>
+    <app-card *ngFor="let item of pageOfItems" [item]="item" class="col-lg-2 col-sm-6"></app-card>
 </div>
 <jw-pagination (changePage)="onChangePage($event)" [items]="items" [pageSize]="12"></jw-pagination>
 
