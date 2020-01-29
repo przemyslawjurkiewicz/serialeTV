@@ -14,11 +14,8 @@ export class SeriesEffect {
     @Effect()
     loadSeries$: Observable<Action> = this.action$.pipe(
         ofType(seriesAction.SeriesActionTypes.Load),
-        withLatestFrom(this.store.pipe(select(fromSeries.getLoaded))),
-        switchMap(([, loaded]) => {
-            if (loaded) {
-                return empty();
-            }
+      //  withLatestFrom(this.store.pipe(select(fromSeries.getLoaded))),
+        switchMap( () => {
             return this.SeriesService.getAllSeries().pipe(
                 map(series => {
                     return new seriesAction.LoadSuccess(series);
